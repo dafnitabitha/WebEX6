@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Background</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s;
+        }
+
+        .box {
+            background: white;
+            width: 400px;
+            padding: 35px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .time {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>Dynamic Background</h1>
+
+        <p>
+            The background colour changes automatically
+            every 30 seconds.
+        </p>
+
+        <div class="time">Color changes every 30 seconds</div>
+    </div>
+
+    <script>
+
+        function changeBackground() {
+
+            var red = Math.floor(Math.random() * 256);
+            var green = Math.floor(Math.random() * 256);
+            var blue = Math.floor(Math.random() * 256);
+
+            var newColor =
+                "rgb(" + red + "," + green + "," + blue + ")";
+
+            document.body.style.backgroundColor = newColor;
+        }
+
+        changeBackground();
+
+        setInterval(changeBackground, 30000);
+
+    </script>
+
+</body>
+</html>

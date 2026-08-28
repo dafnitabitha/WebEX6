@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+        }
+
+        .clock-box {
+            background: #ffffff;
+            width: 380px;
+            padding: 35px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        #clock {
+            font-size: 45px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: #0072ff;
+            background: #eaf6ff;
+            padding: 18px;
+            border-radius: 10px;
+            border: 2px solid #cceaff;
+        }
+
+        p {
+            color: #666;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="clock-box">
+        <h1>Digital Clock</h1>
+
+        <div id="clock"></div>
+
+        <p>Current Time</p>
+    </div>
+
+    <script>
+
+        function showClock() {
+
+            var currentTime = new Date();
+
+            var hour = currentTime.getHours();
+            var minute = currentTime.getMinutes();
+            var second = currentTime.getSeconds();
+
+            if (hour < 10)
+                hour = "0" + hour;
+
+            if (minute < 10)
+                minute = "0" + minute;
+
+            if (second < 10)
+                second = "0" + second;
+
+            document.getElementById("clock").innerHTML =
+                hour + ":" + minute + ":" + second;
+        }
+
+        showClock();
+
+        setInterval(showClock, 1000);
+
+    </script>
+
+</body>
+</html>

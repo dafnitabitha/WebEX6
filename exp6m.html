@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            font-family: Arial, sans-serif;
+            background: #dbe3c6;
+        }
+
+        .card {
+            max-width: 550px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #583737;
+            margin-bottom: 25px;
+        }
+
+        .student {
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: #f9f9cc;
+            border-radius: 8px;
+        }
+
+        h2 {
+            margin-top: 25px;
+            color: #a2ae39;
+            font-size: 19px;
+        }
+
+        p {
+            margin: 7px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h1>Student Information</h1>
+
+        <div id="studentList"></div>
+
+        <h2>Born Before 2000</h2>
+        <div id="oldStudents"></div>
+
+        <h2>Born in 2000 or After</h2>
+        <div id="newStudents"></div>
+
+    </div>
+
+    <script>
+
+        var students = [
+            { name: "Arun", regno: "UR13CS129", year: 1997 },
+            { name: "Diya", regno: "UR13CS142", year: 1999 },
+            { name: "Anu", regno: "UR13CS156", year: 2002 }
+        ];
+
+        var studentOutput = "";
+        var oldOutput = "";
+        var newOutput = "";
+
+        for (var i = 0; i < students.length; i++) {
+
+            studentOutput +=
+                "<div class='student'>" +
+                students[i].name +
+                "'s Register Number is " +
+                students[i].regno +
+                "</div>";
+
+            if (students[i].year < 2000) {
+                oldOutput += "<p>" + students[i].name + "</p>";
+            }
+            else {
+                newOutput += "<p>" + students[i].name + "</p>";
+            }
+        }
+
+        document.getElementById("studentList").innerHTML = studentOutput;
+        document.getElementById("oldStudents").innerHTML = oldOutput;
+        document.getElementById("newStudents").innerHTML = newOutput;
+
+    </script>
+
+</body>
+</html>

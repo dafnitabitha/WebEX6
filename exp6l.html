@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moving Car</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: #eef2f3;
+        }
+
+        .container {
+            width: 650px;
+            padding: 35px;
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .road {
+            position: relative;
+            height: 70px;
+            border-bottom: 4px solid #555;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        #car {
+            position: relative;
+            left: 0px;
+            font-size: 42px;
+        }
+
+        button {
+            padding: 10px 25px;
+            margin: 5px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .move {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .stop {
+            background: #e74c3c;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Moving Car</h1>
+
+        <div class="road">
+            <span id="car">🚗</span>
+        </div>
+
+        <button class="move" onclick="moveCar()">Move</button>
+        <button class="stop" onclick="stopCar()">Stop</button>
+
+    </div>
+
+    <script>
+
+        var car;
+        var movement;
+
+        function initialize() {
+            car = document.getElementById("car");
+            car.style.position = "relative";
+            car.style.left = "0px";
+        }
+
+        function moveCar() {
+            car.style.left = parseInt(car.style.left) + 2 + "px";
+            movement = setTimeout(moveCar, 20);
+        }
+
+        function stopCar() {
+            clearTimeout(movement);
+        }
+
+        window.onload = initialize;
+
+    </script>
+
+</body>
+</html>

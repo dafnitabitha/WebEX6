@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Font Size Changer</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: #eef2ff;
+        }
+
+        .card {
+            width: 450px;
+            padding: 35px;
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        #para1 {
+            font-size: 17px;
+            padding: 20px;
+            background: #f5f3ff;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: font-size 0.3s;
+        }
+
+        #para1:hover {
+            background: #e9e4ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h1>Change Font Size</h1>
+
+        <p id="para1"
+           onmouseover="increaseSize()"
+           onmouseout="decreaseSize()">
+            Move your mouse over this paragraph to zoom in.
+        </p>
+
+    </div>
+
+    <script>
+
+        function increaseSize() {
+            document.getElementById("para1").style.fontSize = "28px";
+        }
+
+        function decreaseSize() {
+            document.getElementById("para1").style.fontSize = "17px";
+        }
+
+    </script>
+
+</body>
+</html>
